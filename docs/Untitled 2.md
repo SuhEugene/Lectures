@@ -41,3 +41,104 @@ graph TD
     D --> E
 
 ```
+
+```mermaid
+classDiagram
+
+    class LightingDevice {
+        # light_color: string
+        # brightness: double
+        # is_enabled: bool
+        + setLightColor(string)
+        + getLightColor() string
+        + setBrightness(double)
+        + getBrightness() double
+        + setEnabled(bool)
+        + getEnabled() bool
+    }
+
+    class ElectricalDevice {
+        # energy_consumption: int
+        + setEnergyConsumption(int)
+        + getEnergyConsumption() int
+    }
+
+    class ManualDevice {
+        # is_portable: bool
+        + setPortable(bool)
+        + isPortable() bool
+    }
+
+    class Lighter {
+        # fuel: float
+        + setFuel(float)
+        + getFuel() float
+    }
+
+    class Flare {
+        # burn_time: int
+        # was_enabled: bool
+        + setBurnTime(int)
+        + getBurnTime() int
+        + prime()
+    }
+
+    class Spotlight {
+        # shape: string
+        + setShape(string)
+        + getShape() string
+    }
+
+    class Floodlight {
+        # light_amount: int
+        + setLightAmount(int)
+        + getLightAmount() int
+    }
+
+    class PointSpotlight {
+        # focal_point: double
+        # angle: double
+        + setFocalPoint(double)
+        + getFocalPoint() double
+        + setAngle(double)
+        + getAngle() double
+    }
+
+    class Torchere {
+        # leg_length: int
+        # light_radius: int
+        + setLegLength(int)
+        + getLegLength() int
+        + setLightRadius(int)
+        + getLightRadius() int
+        + pullString()
+    }
+
+    class AdjustableTorchere {
+        # max_leg_length: int
+        # min_leg_length: int
+        + setMaxLegLength(int)
+        + getMaxLegLength() int
+        + setMinLegLength(int)
+        + getMinLegLength() int
+        + toggleLength() int
+    }
+
+    class DiscoTorchere {
+        # colors: list<string>
+        + setColors(list<string>)
+        + getColors() list<string>
+        + changeColor()
+    }
+
+LightingDevice <|-- ElectricalDevice
+LightingDevice <|-- ManualDevice
+ManualDevice <|-- Lighter
+ManualDevice <|-- Flare
+ElectricalDevice <|-- Spotlight
+Spotlight <|-- Floodlight
+Spotlight <|-- PointSpotlight
+ElectricalDevice <|-- Torchere
+Torchere <|-- AdjustableTorchere
+Torchere <|-- DiscoTorchere
+```
